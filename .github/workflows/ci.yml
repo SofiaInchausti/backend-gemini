@@ -29,6 +29,6 @@ jobs:
         run: npm run tsc
 
       - name: Run tests
-       env:
-        GEMINI_API_KEY: ${{ variables.GEMINI_API_KEY }}  # Usamos el secret aquí
+        env:
+          GEMINI_API_KEY: ${{ variables.GEMINI_API_KEY }}  # Usamos el secret aquí
         run: npm test
