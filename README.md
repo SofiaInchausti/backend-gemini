@@ -16,6 +16,7 @@ Gemini Backend is an API that processes text data sent from a prompt. The backen
 - Docker for containerizing the application.
 - Husky: To enforce pre-commit hooks for linting, prettier, and running tests.
 - GitHub Actions: CI pipeline for linting, testing, and deploying
+- Render for hosting
 
 ## Installation
 
@@ -86,12 +87,15 @@ Once the server is running, you can send a POST request to the /processText endp
 ```
 
 ## GitHub Actions Pipeline
-A pipeline is set up to ensure that your code works correctly when pushing to the main or develop branches. The pipeline includes:
+A pipeline is set up to ensure that your code works correctly when pushing to the main. The pipeline includes:
 
 Linting: Checks for code style and formatting issues.
 Prettier: Ensures consistent code formatting.
 Tests: Runs Vitest to check the correctness of your code.
 The pipeline will automatically run when a push is made to the main or develop branches. Here's the GitHub Actions YAML pipeline:
+
+## Automatic Deployment to Render
+Every time a change is pushed to the main branch, the GitHub Actions pipeline triggers an automatic deployment to Render. The deployment process is managed through a GitHub Action that makes a request to Render’s API.
 
 ## Husky 
 Husky is configured to ensure that linting, prettier formatting, and testing happen before you commit or push any code. The following hooks are set up:
