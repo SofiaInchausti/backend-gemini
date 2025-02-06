@@ -15,7 +15,7 @@ import { processGeminiRequest } from "../services/gemini.service";
  */
 export const geminiController = async (
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<void> => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {

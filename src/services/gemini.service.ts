@@ -15,7 +15,7 @@ const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 export async function processGeminiRequest(
-  input: string
+  input: string,
 ): Promise<GeminiResponse> {
   const currentDate = new Date().toISOString().split("T")[0];
 
@@ -66,14 +66,14 @@ export async function processGeminiRequest(
       new Promise((_, reject) =>
         setTimeout(
           () => reject(new Error("Timeout esperando respuesta")),
-          20000
-        )
+          20000,
+        ),
       ),
     ]);
     /* eslint-disable @typescript-eslint/no-explicit-any */
     const textResponse = (result as any).response.text();
 
-  // Clean up and parse the response to extract valid JSON
+    // Clean up and parse the response to extract valid JSON
     const cleanTextResponse = textResponse.replace(/```json|```/g, "").trim();
 
     const parsedResponse: GeminiResponse = JSON.parse(cleanTextResponse);

@@ -7,12 +7,12 @@ const router = Router();
 /**
  * POST /
  * Endpoint to process requests for the Gemini AI model.
- * 
+ *
  * Validates the request body:
  * - `input` is required and must not be null or falsy.
  * - Must be a string, trimmed, and have a length between 5 and 500 characters.
  * - Must not contain special characters like `< > / { } [ ]` to prevent injection attacks.
- * 
+ *
  * If validation passes, the request is handled by `geminiController`.
  */
 /* eslint-disable no-useless-escape */
@@ -29,8 +29,7 @@ router.post(
       .matches(/^[^<>\/{}\[\]]+$/)
       .withMessage("Input contains invalid characters"),
   ],
-  geminiController
+  geminiController,
 );
 
 export default router;
-

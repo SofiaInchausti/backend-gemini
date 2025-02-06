@@ -62,7 +62,7 @@ describe("E2E: Pruebas del endpoint /gemini", () => {
         owner: expect.any(Boolean),
         complete: expect.any(Boolean),
         question: expect.any(String),
-      })
+      }),
     );
   });
 
@@ -80,7 +80,7 @@ describe("E2E: Pruebas del endpoint /gemini", () => {
     expect(response.body).toHaveProperty("errors");
     // Example error message (adjust according to your validator configuration)
     expect(response.body.errors[0].msg).toMatch(
-      /Input must be between 5 and 500 characters/
+      /Input must be between 5 and 500 characters/,
     );
   });
 
@@ -93,7 +93,7 @@ describe("E2E: Pruebas del endpoint /gemini", () => {
     expect(response.status).toBe(400);
     expect(response.body).toHaveProperty("errors");
     expect(response.body.errors[0].msg).toMatch(
-      /Input must be between 5 and 500 characters/
+      /Input must be between 5 and 500 characters/,
     );
   });
 
@@ -105,7 +105,7 @@ describe("E2E: Pruebas del endpoint /gemini", () => {
     expect(response.status).toBe(400);
     expect(response.body).toHaveProperty("errors");
     expect(response.body.errors[0].msg).toMatch(
-      /Input contains invalid characters/
+      /Input contains invalid characters/,
     );
   });
 });
