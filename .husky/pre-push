@@ -1,6 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# Aquí puedes colocar los comandos que desees ejecutar antes del commit.
-# Por ejemplo, para ejecutar los tests:
-npm test
+npm run test
