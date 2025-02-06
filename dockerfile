@@ -1,34 +1,34 @@
 FROM node:18-alpine AS builder
 
-# Directorio de trabajo dentro del contenedor
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copiamos los archivos de package para instalar dependencias
+# Copy package files to install dependencies
 COPY package*.json ./
 
-# Instalamos las dependencias
+# Install dependencies
 RUN npm install
 
-# Copiamos el resto del código fuente
+# Copy the rest of the source code
 COPY . .
 
-# Si utilizas TypeScript, compila el código (asegúrate de tener el script "build" en tu package.json)
+# If using TypeScript, compile the code 
 RUN npx tsc
 
-# Etapa 2: Imagen final para producción
+# Stage 2: Final image for production
 FROM node:18-alpine
 
 WORKDIR /app
 
-# Copiamos únicamente los archivos necesarios para producción
+# Set the working directory
 COPY package*.json ./
 RUN npm install --only=production
 
-# Copiamos los archivos compilados desde la etapa de construcción
+# Copy only the necessary files for production
 COPY --from=builder /app/dist ./dist
 
-# Exponemos el puerto que utiliza tu aplicación (ajusta el número según tu configuración)
+# Expose the port used by your application (adjust the number as needed)
 EXPOSE 3000
 
-# Comando para iniciar la aplicación
+# Command to start the application
 CMD ["npm", "start"]
