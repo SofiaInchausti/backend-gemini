@@ -66,7 +66,7 @@ export async function processGeminiRequest(
       new Promise((_, reject) =>
         setTimeout(
           () => reject(new Error("Timeout esperando respuesta")),
-          20000,
+          40000,
         ),
       ),
     ]);
