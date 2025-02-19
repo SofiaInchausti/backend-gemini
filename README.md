@@ -3,7 +3,7 @@
 ## Description
 Gemini Backend is an API that processes text data sent from a prompt. The backend extracts relevant information such as the date, location, description, and any injuries that may have occurred based on the provided text. The data is analyzed to generate structured information in response to user queries.
 
-## The backend is already deploy -> [Backend](https://backend-gemini-6vp6.onrender.com)
+## The backend is already deploy -> [Backend](https://backend-gemini-1.onrender.com)
 
 ## Technologies Used
 - Express: for handling HTTP requests and routing.
