@@ -76,7 +76,6 @@ export async function processGeminiRequest(
   Texto a analizar:
   "${input}"
   `;
-  
 
   try {
     // Execute the API call with a timeout of 10 seconds
@@ -95,9 +94,9 @@ export async function processGeminiRequest(
     // Clean up and parse the response to extract valid JSON
     const jsonMatch = textResponse.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
-      throw new Error("La respuesta de Gemini no contiene un JSON válido");
+      throw new Error("The response from Gemini does not contain a valid JSON.");
     }
-    
+
     const cleanTextResponse = jsonMatch[0].trim();
     const parsedResponse: GeminiResponse = JSON.parse(cleanTextResponse);
     return parsedResponse;
