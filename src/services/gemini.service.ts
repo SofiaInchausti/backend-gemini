@@ -94,7 +94,9 @@ export async function processGeminiRequest(
     // Clean up and parse the response to extract valid JSON
     const jsonMatch = textResponse.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
-      throw new Error("The response from Gemini does not contain a valid JSON.");
+      throw new Error(
+        "The response from Gemini does not contain a valid JSON.",
+      );
     }
 
     const cleanTextResponse = jsonMatch[0].trim();
